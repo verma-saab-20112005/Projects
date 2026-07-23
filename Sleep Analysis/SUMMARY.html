@@ -1,0 +1,165 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Health Analysis Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .card {
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sleep Health & Lifestyle Dataset Processing Summary</h1>
+    
+    <div class="card">
+        <h3>Overview</h3>
+        <p><strong>Total Samples:</strong> 374</p>
+        <p><strong>Training Set:</strong> 299 samples (80%)</p>
+        <p><strong>Test Set:</strong> 75 samples (20%)</p>
+        <p><strong>Final Features Count:</strong> 26 numeric/encoded features</p>
+    </div>
+
+    <h2>1. Data Preprocessing Steps</h2>
+    <ul>
+        <li><strong>Missing Values Handling:</strong> Replaced missing values in <code>Sleep Disorder</code> with <code>"None"</code>.</li>
+        <li><strong>Feature Extraction:</strong> Extracted <code>High BPM</code> and <code>Low BPM</code> from <code>Blood Pressure</code> string.</li>
+        <li><strong>Encoding:</strong> Applied One-Hot Encoding to <code>Gender</code>, <code>Occupation</code>, <code>BMI Category</code>, and target <code>Sleep Disorder</code>.</li>
+        <li><strong>Feature Scaling:</strong> Scaled features using <code>StandardScaler</code>.</li>
+    </ul>
+
+    <h2>2. Target Class Distribution</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sleep Disorder</th>
+                <th>Count</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>None</td>
+                <td>219</td>
+                <td>58.55%</td>
+            </tr>
+            <tr>
+                <td>Sleep Apnea</td>
+                <td>78</td>
+                <td>20.86%</td>
+            </tr>
+            <tr>
+                <td>Insomnia</td>
+                <td>77</td>
+                <td>20.59%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Model Architecture Summary</h2>
+    <p>A multi-layer perceptron (Neural Network) built using Keras with L2 regularization and Dropout layers:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Layer Type</th>
+                <th>Units / Rate</th>
+                <th>Activation</th>
+                <th>Regularization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dense (Input: 26)</td>
+                <td>16</td>
+                <td>ReLU</td>
+                <td>L2 (0.002)</td>
+            </tr>
+            <tr>
+                <td>Dropout</td>
+                <td>0.3</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Dense</td>
+                <td>8</td>
+                <td>ReLU</td>
+                <td>L2 (0.002)</td>
+            </tr>
+            <tr>
+                <td>Dropout</td>
+                <td>0.3</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Dense</td>
+                <td>4</td>
+                <td>ReLU</td>
+                <td>L2 (0.002)</td>
+            </tr>
+            <tr>
+                <td>Dropout</td>
+                <td>0.2</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Dense (Output)</td>
+                <td>3</td>
+                <td>Softmax</td>
+                <td>L2 (0.002)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <p><strong>Total Trainable Parameters:</strong> 619 (2.42 KB)</p>
+        <p><strong>Early Stopping Callback:</strong> Configured to monitor <code>val_loss</code> with <code>patience=5</code>.</p>
+    </div>
+
+</body>
+</html>
