@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather History Data Executive Summary</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3 {
+            color: #1a252f;
+        }
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .cards-container {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid #3498db;
+        }
+        .card .number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .card .label {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        th {
+            background-color: #3498db;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f1f2f6;
+        }
+        .section-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather History Executive Analysis Summary</h1>
+    <p>Data period covering <strong>January 1, 2012</strong> through <strong>December 31, 2015</strong> (1,461 total observation days).</p>
+
+    <div class="cards-container">
+        <div class="card">
+            <div class="number">1,461</div>
+            <div class="label">Total Records</div>
+        </div>
+        <div class="card" style="border-left-color: #e74c3c;">
+            <div class="number">641</div>
+            <div class="label">Rain Days (43.9%)</div>
+        </div>
+        <div class="card" style="border-left-color: #f1c40f;">
+            <div class="number">640</div>
+            <div class="label">Sun Days (43.8%)</div>
+        </div>
+        <div class="card" style="border-left-color: #2ecc71;">
+            <div class="number">16.44°C</div>
+            <div class="label">Avg Max Temp</div>
+        </div>
+        <div class="card" style="border-left-color: #9b59b6;">
+            <div class="number">55.9 mm</div>
+            <div class="label">Max Daily Rainfall</div>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2>Weather Category Distribution</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Weather Type</th>
+                    <th>Frequency (Days)</th>
+                    <th>Share of Total (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Rain</strong></td>
+                    <td>641</td>
+                    <td>43.87%</td>
+                </tr>
+                <tr>
+                    <td><strong>Sun</strong></td>
+                    <td>640</td>
+                    <td>43.81%</td>
+                </tr>
+                <tr>
+                    <td><strong>Fog</strong></td>
+                    <td>101</td>
+                    <td>6.91%</td>
+                </tr>
+                <tr>
+                    <td><strong>Drizzle</strong></td>
+                    <td>53</td>
+                    <td>3.63%</td>
+                </tr>
+                <tr>
+                    <td><strong>Snow</strong></td>
+                    <td>26</td>
+                    <td>1.78%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section-box">
+        <h2>Key Quantitative Metrics Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Precipitation (mm)</th>
+                    <th>Max Temperature (°C)</th>
+                    <th>Min Temperature (°C)</th>
+                    <th>Wind Speed (m/s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mean</strong></td>
+                    <td>3.03</td>
+                    <td>16.44</td>
+                    <td>8.23</td>
+                    <td>3.24</td>
+                </tr>
+                <tr>
+                    <td><strong>Std Deviation</strong></td>
+                    <td>6.68</td>
+                    <td>7.35</td>
+                    <td>5.02</td>
+                    <td>1.44</td>
+                </tr>
+                <tr>
+                    <td><strong>Minimum</strong></td>
+                    <td>0.00</td>
+                    <td>-1.60</td>
+                    <td>-7.10</td>
+                    <td>0.40</td>
+                </tr>
+                <tr>
+                    <td><strong>Median (50%)</strong></td>
+                    <td>0.00</td>
+                    <td>15.60</td>
+                    <td>8.30</td>
+                    <td>3.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Maximum</strong></td>
+                    <td>55.90</td>
+                    <td>35.60</td>
+                    <td>18.30</td>
+                    <td>9.50</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
