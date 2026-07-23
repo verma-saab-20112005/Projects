@@ -1,0 +1,98 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Summary & Workflow Pipeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #1a365d;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e2e8f0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>LSTM Text Generation Summary</h1>
+
+    <div class="card">
+        <h2>Dataset & Preprocessing Metrics</h2>
+        <ul>
+            <li><strong>Input Sources:</strong> Course FAQ dataset & Maritime Machinery regulations</li>
+            <li><strong>Vocabulary Size:</strong> ~282 - 292 unique tokens</li>
+            <li><strong>Total Sequence Shape:</strong> (863, 57)</li>
+            <li><strong>Feature Vector Shape (X):</strong> (863, 56) with pre-padding</li>
+            <li><strong>Target Encoding (y):</strong> One-hot encoded across 283 classes</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Model Architecture Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Layer Type</th>
+                    <th>Input / Output Dimensions</th>
+                    <th>Parameters</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Embedding</td>
+                    <td>(None, 56) &rarr; (None, 56, 100)</td>
+                    <td>28,300</td>
+                </tr>
+                <tr>
+                    <td>LSTM</td>
+                    <td>(None, 56, 100) &rarr; (None, 150)</td>
+                    <td>150,600</td>
+                </tr>
+                <tr>
+                    <td>Dense (Softmax)</td>
+                    <td>(None, 150) &rarr; (None, 283)</td>
+                    <td>42,733</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="highlight">Total Trainable Parameters: 221,633 (865.75 KB)</p>
+    </div>
+
+    <div class="card">
+        <h2>Training Results Summary</h2>
+        <p><strong>Training Set Accuracy:</strong> ~94.49%</p>
+        <p><strong>Final Loss Value:</strong> ~0.1115</p>
+        <p><strong>Epochs Completed:</strong> 100</p>
+    </div>
+
+</body>
+</html>
