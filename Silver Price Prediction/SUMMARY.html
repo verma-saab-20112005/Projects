@@ -1,0 +1,171 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Prices Executive Summary</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #0284c7;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #334155;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .header h1 { margin: 0 0 0.5rem 0; font-size: 1.8rem; }
+        .header p { margin: 0; color: #94a3b8; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 0.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+        }
+        .badge-success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .badge-warning {
+            background: #fef9c3;
+            color: #854d0e;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Silver Market Data Pipeline Summary</h1>
+            <p>Dataset Overview & Technical Indicators Quality Audit</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div>Total Records</div>
+                <div class="number">2,524</div>
+            </div>
+            <div class="card">
+                <div>Features Analyzed</div>
+                <div class="number">13</div>
+            </div>
+            <div class="card">
+                <div>Core Completeness</div>
+                <div class="number">100%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Dataset Health Audit</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric Group</th>
+                        <th>Feature Name</th>
+                        <th>Type</th>
+                        <th>Nulls</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Market Prices</td>
+                        <td>Open, High, Low, Close, Adj Close</td>
+                        <td>float64</td>
+                        <td>0</td>
+                        <td><span class="badge-success">Complete</span></td>
+                    </tr>
+                    <tr>
+                        <td>Trading Vol</td>
+                        <td>Volume</td>
+                        <td>int64</td>
+                        <td>0</td>
+                        <td><span class="badge-success">Complete</span></td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Daily_Return</td>
+                        <td>float64</td>
+                        <td>1</td>
+                        <td><span class="badge-warning">Expected (Lag 1)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Risk Indicator</td>
+                        <td>Volatility_30d</td>
+                        <td>float64</td>
+                        <td>30</td>
+                        <td><span class="badge-warning">Expected (Lag 30)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Trend Indicator</td>
+                        <td>MA_50</td>
+                        <td>float64</td>
+                        <td>49</td>
+                        <td><span class="badge-warning">Expected (Lag 50)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Trend Indicator</td>
+                        <td>MA_200</td>
+                        <td>float64</td>
+                        <td>199</td>
+                        <td><span class="badge-warning">Expected (Lag 200)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
