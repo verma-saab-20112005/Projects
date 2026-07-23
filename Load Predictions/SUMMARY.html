@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Exploratory Analysis Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .metric-card {
+            display: inline-block;
+            width: 45%;
+            padding: 15px;
+            margin: 10px 2%;
+            background: #eef7fc;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dataset Summary Report</h1>
+        <p>Overview of the <strong>original_dataset.csv</strong> analysis.</p>
+
+        <div class="metric-card">
+            <h3>Total Observations</h3>
+            <p style="font-size: 24px; font-weight: bold; margin: 0;">20,000</p>
+        </div>
+        <div class="metric-card">
+            <h3>Total Features</h3>
+            <p style="font-size: 24px; font-weight: bold; margin: 0;">22 Columns</p>
+        </div>
+
+        <h2>Demographic Distributions</h2>
+        
+        <h3>Gender</h3>
+        <table>
+            <tr><th>Category</th><th>Count</th><th>Percentage</th></tr>
+            <tr><td>Female</td><td>10,034</td><td>50.17%</td></tr>
+            <tr><td>Male</td><td>9,536</td><td>47.68%</td></tr>
+            <tr><td>Other</td><td>430</td><td>2.15%</td></tr>
+        </table>
+
+        <h3>Employment Status</h3>
+        <table>
+            <tr><th>Status</th><th>Count</th><th>Percentage</th></tr>
+            <tr><td>Employed</td><td>13,007</td><td>65.04%</td></tr>
+            <tr><td>Self-employed</td><td>2,923</td><td>14.62%</td></tr>
+            <tr><td>Unemployed</td><td>2,113</td><td>10.57%</td></tr>
+            <tr><td>Retired</td><td>1,176</td><td>5.88%</td></tr>
+            <tr><td>Student</td><td>781</td><td>3.91%</td></tr>
+        </table>
+
+        <h3>Top Loan Purposes</h3>
+        <table>
+            <tr><th>Purpose</th><th>Count</th><th>Percentage</th></tr>
+            <tr><td>Debt consolidation</td><td>7,981</td><td>39.91%</td></tr>
+            <tr><td>Other</td><td>2,550</td><td>12.75%</td></tr>
+            <tr><td>Car</td><td>2,390</td><td>11.95%</td></tr>
+            <tr><td>Home</td><td>1,972</td><td>9.86%</td></tr>
+            <tr><td>Education</td><td>1,675</td><td>8.38%</td></tr>
+        </table>
+    </div>
+</body>
+</html>
