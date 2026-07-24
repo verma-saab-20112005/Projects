@@ -1,0 +1,109 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLLB Translation Script Summary</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+        }
+        h1 {
+            color: #1a73e8;
+            border-bottom: 2px solid #e8eaed;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #202124;
+            margin-top: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #f1f3f4;
+            color: #3c4043;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        code {
+            background-color: #f1f3f4;
+            color: #d93025;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Translation Script Summary</h1>
+    <p>Summary breakdown of the technical components and configurations used in the sequence-to-sequence translation program[cite: 2].</p>
+
+    <h2>Technical Breakdown</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Identifier / Value</th>
+                <th>Function</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Model Name</strong></td>
+                <td><code>facebook/nllb-200-distilled-600M</code>[cite: 2]</td>
+                <td>Distilled 600M parameter model for multilingual translation[cite: 2].</td>
+            </tr>
+            <tr>
+                <td><strong>Source Language Code</strong></td>
+                <td><code>eng_Latn</code>[cite: 2]</td>
+                <td>Specifies English input written in Latin script[cite: 2].</td>
+            </tr>
+            <tr>
+                <td><strong>Target Token ID</strong></td>
+                <td><code>hin_Deva</code>[cite: 2]</td>
+                <td>Forces Beginning-Of-Sequence (BOS) token to output Hindi in Devanagari script[cite: 2].</td>
+            </tr>
+            <tr>
+                <td><strong>Max Generation Length</strong></td>
+                <td><code>100</code>[cite: 2]</td>
+                <td>Restricts maximum tokens per translated response[cite: 2].</td>
+            </tr>
+            <tr>
+                <td><strong>Warning Filter</strong></td>
+                <td><code>warnings.filterwarnings("ignore")</code>[cite: 2]</td>
+                <td>Suppresses non-essential runtime warnings in console output[cite: 2].</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
