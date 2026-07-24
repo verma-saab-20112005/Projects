@@ -1,0 +1,99 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Captioning Script Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        code {
+            background-color: #eef1f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Script Execution Summary</h1>
+    <p>This document provides a summary overview of the BLIP Image Captioning script components and execution workflow.</p>
+
+    <h2>Component Breakdown</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Type / Library</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>BlipProcessor</code></td>
+                <td>Hugging Face Transformers</td>
+                <td>Preprocesses input image into PyTorch tensors and decodes output tokens back to text.</td>
+            </tr>
+            <tr>
+                <td><code>BlipForConditionalGeneration</code></td>
+                <td>Hugging Face Transformers</td>
+                <td>Deep learning model that generates natural language descriptions from visual inputs.</td>
+            </tr>
+            <tr>
+                <td><code>Image.open()</code></td>
+                <td>Pillow (PIL)</td>
+                <td>Reads local image file and converts image channel mode to RGB.</td>
+            </tr>
+            <tr>
+                <td><code>model.generate()</code></td>
+                <td>PyTorch / Transformers</td>
+                <td>Performs inference to generate caption tokens up to <code>max_new_tokens=50</code>.</td>
+            </tr>
+        </tbody>
+    </div>
+
+</body>
+</html>
