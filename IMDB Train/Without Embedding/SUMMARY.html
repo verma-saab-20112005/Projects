@@ -1,0 +1,157 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook Summary - IMDB Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #edf2f7;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .badge-warning {
+            background-color: #feebc8;
+            color: #744210;
+        }
+        .badge-info {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Notebook Summary Report</h1>
+
+    <div class="card">
+        <h2>Metadata</h2>
+        <ul>
+            <li><strong>Environment:</strong> Python 3.13.5 (IPython Kernel: <code>python3</code>)</li>
+            <li><strong>Task:</strong> Binary Sentiment Analysis</li>
+            <li><strong>Dataset:</strong> IMDB Movie Reviews Dataset (25,000 train / 25,000 test)</li>
+            <li><strong>Frameworks:</strong> TensorFlow, Keras, Pandas, NumPy, Matplotlib</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Data Preprocessing Summary</h2>
+        <ul>
+            <li><strong>Max Sequence Length:</strong> 218 tokens</li>
+            <li><strong>Padding Strategy:</strong> Post-padding (<code>padding="post"</code>)</li>
+            <li><strong>Final Input Shape:</strong> <code>(25000, 218)</code> for both train and test sets</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Model Architecture</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Layer</th>
+                    <th>Type</th>
+                    <th>Parameters / Units</th>
+                    <th>Activation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Input Layer</td>
+                    <td>Input</td>
+                    <td>Shape: (218, 1)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Layer 1</td>
+                    <td>SimpleRNN</td>
+                    <td>128 Units</td>
+                    <td>tanh</td>
+                </tr>
+                <tr>
+                    <td>Layer 2</td>
+                    <td>Dense</td>
+                    <td>8 Units</td>
+                    <td>ReLU</td>
+                </tr>
+                <tr>
+                    <td>Output Layer</td>
+                    <td>Dense</td>
+                    <td>1 Unit</td>
+                    <td>Sigmoid</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Training Overview</h2>
+        <p><span class="badge badge-info">Epochs: 25</span> <span class="badge badge-info">Optimizer: Adam</span> <span class="badge badge-info">Loss: Binary Crossentropy</span></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Initial (Epoch 1)</th>
+                    <th>Final (Epoch 25)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Train Accuracy</td>
+                    <td>50.00%</td>
+                    <td>49.81%</td>
+                </tr>
+                <tr>
+                    <td>Validation Accuracy</td>
+                    <td>50.00%</td>
+                    <td>50.00%</td>
+                </tr>
+                <tr>
+                    <td>Loss</td>
+                    <td>0.6979</td>
+                    <td>0.6931</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p><span class="badge badge-warning">Key Insight:</span> The accuracy remains around ~50% (equivalent to random guessing) across all epochs. This suggests that directly feeding integer token IDs into a SimpleRNN without an <code>Embedding</code> layer limits sequence pattern learning.</p>
+    </div>
+
+</body>
+</html>
