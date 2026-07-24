@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Analysis Executive Summary</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3 {
+            color: #004085;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .metric-box {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: right;
+        }
+        th {
+            background-color: #004085;
+            color: white;
+            text-align: center;
+        }
+        td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Stock Market Data Executive Summary</h1>
+    <p><em>Dataset Period: January 2020 – December 2024</em></p>
+
+    <div class="card">
+        <h2>Key Overview Metrics</h2>
+        <div class="metric-grid">
+            <div class="metric-box">
+                <div>Total Records</div>
+                <div class="metric-value">18,270</div>
+            </div>
+            <div class="metric-box">
+                <div>Missing Values</div>
+                <div class="metric-value">0</div>
+            </div>
+            <div class="metric-box">
+                <div>Avg Daily Volume</div>
+                <div class="metric-value">25.61M</div>
+            </div>
+            <div class="metric-box">
+                <div>Mean Daily Change</div>
+                <div class="metric-value">0.006%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Descriptive Statistics Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
+                    <th>Volume</th>
+                    <th>Daily Change (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mean</td>
+                    <td>20,442.81</td>
+                    <td>20,718.69</td>
+                    <td>20,166.62</td>
+                    <td>20,442.38</td>
+                    <td>25,608,340</td>
+                    <td>0.006%</td>
+                </tr>
+                <tr>
+                    <td>Std Dev</td>
+                    <td>11,257.36</td>
+                    <td>11,260.18</td>
+                    <td>11,258.55</td>
+                    <td>11,261.45</td>
+                    <td>14,148,370</td>
+                    <td>4.53%</td>
+                </tr>
+                <tr>
+                    <td>Min</td>
+                    <td>1,000.65</td>
+                    <td>1,018.52</td>
+                    <td>349.96</td>
+                    <td>622.95</td>
+                    <td>1,005,194</td>
+                    <td>-44.32%</td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td>20,398.86</td>
+                    <td>20,685.67</td>
+                    <td>20,116.40</td>
+                    <td>20,394.74</td>
+                    <td>25,737,160</td>
+                    <td>-0.01%</td>
+                </tr>
+                <tr>
+                    <td>Max</td>
+                    <td>39,990.31</td>
+                    <td>40,680.18</td>
+                    <td>39,985.49</td>
+                    <td>40,474.78</td>
+                    <td>49,998,020</td>
+                    <td>45.69%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
