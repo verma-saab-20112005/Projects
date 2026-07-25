@@ -1,0 +1,105 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTKFace Data Extraction Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .card-grid {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .card {
+            flex: 1;
+            background: #eef2f5;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #1a73e8;
+        }
+        .card h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .notice {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ffeeba;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Face Classification Data Extraction Summary</h1>
+    
+    <div class="notice">
+        <strong>Dataset Excluded:</strong> The UTKFace dataset directory is excluded due to large file size limitations. Set <code>folder_path</code> locally to execute the code.
+    </div>
+
+    <h2>Extracted Attributes</h2>
+    <p>Data parsing extracted targets from UTKFace filenames structured as <code>[age]_[gender]_[race]_[date].jpg</code>.</p>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>Age Minimum</h3>
+            <p>1 Year</p>
+        </div>
+        <div class="card">
+            <h3>Age Maximum</h3>
+            <p>116 Years</p>
+        </div>
+        <div class="card">
+            <h3>Gender Labels</h3>
+            <p>Binary (0 / 1)</p>
+        </div>
+    </div>
+
+    <h2>Imported Frameworks</h2>
+    <ul>
+        <li><code>tensorflow</code> & <code>keras</code> (Neural Networks and Image Preprocessing)</li>
+        <li><code>pandas</code> & <code>numpy</code> (Data handling and array manipulation)</li>
+        <li><code>os</code> (Local Directory and File Extraction)</li>
+    </ul>
+</div>
+
+</body>
+</html>
