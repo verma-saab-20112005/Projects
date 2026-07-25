@@ -1,0 +1,16 @@
+# Ignore Datasets
+Train/
+Test/
+*.zip
+*.tar.gz
+
+# Ignore Trained Model Weights/Outputs
+*.h5
+*.keras
+*.pkl
+*.onnx
+
+# Ignore Python & Jupyter Cache
+__pycache__/
+.ipynb_checkpoints/
+.env

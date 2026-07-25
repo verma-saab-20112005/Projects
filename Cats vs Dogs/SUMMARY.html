@@ -1,0 +1,139 @@
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats vs Dogs Classifier - Executive Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .metrics-grid {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            flex: 1;
+            background: #eef2f7;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .metric-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .metric-card p {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .highlight {
+            background-color: #d4edda !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cats vs Dogs CNN Classifier — Executive Summary</h1>
+        <p>This report summarizes the model configuration and performance metrics derived from training a custom Convolutional Neural Network (CNN) on a binary classification task.</p>
+
+        <h2>Key Model Metrics</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Best Val Loss</h3>
+                <p>0.4169</p>
+            </div>
+            <div class="metric-card">
+                <h3>Best Val Accuracy</h3>
+                <p>86.12%</p>
+            </div>
+            <div class="metric-card">
+                <h3>Max Train Accuracy</h3>
+                <p>95.95%</p>
+            </div>
+            <div class="metric-card">
+                <h3>Total Parameters</h3>
+                <p>14.85 M</p>
+            </div>
+        </div>
+
+        <h2>Dataset & Preprocessing</h2>
+        <ul>
+            <li><strong>Training Dataset:</strong> 791 images (2 classes)</li>
+            <li><strong>Testing Dataset:</strong> 209 images (2 classes)</li>
+            <li><strong>Target Shape:</strong> (256, 256, 3)</li>
+            <li><strong>Pixel Rescaling:</strong> Scaled to <code>[0, 1]</code> via <code>tf.cast(image/255, tf.float64)</code></li>
+        </ul>
+
+        <h2>Training Dynamics</h2>
+        <p>The model was trained using the Adam optimizer with binary crossentropy loss. An <code>EarlyStopping</code> callback was attached to monitor validation loss, which halted training at <strong>Epoch 18</strong>.</p>
+
+        <h3>Epoch Progress Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Epoch</th>
+                    <th>Train Loss</th>
+                    <th>Train Acc</th>
+                    <th>Val Loss</th>
+                    <th>Val Acc</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>1.3711</td><td>52.47%</td><td>0.6876</td><td>57.42%</td></tr>
+                <tr><td>5</td><td>0.6032</td><td>68.77%</td><td>0.6407</td><td>51.20%</td></tr>
+                <tr><td>10</td><td>0.3409</td><td>87.99%</td><td>0.5434</td><td>78.47%</td></tr>
+                <tr class="highlight"><td>13 (Best)</td><td>0.2671</td><td>90.64%</td><td>0.4169</td><td>86.12%</td></tr>
+                <tr><td>15</td><td>0.1501</td><td>93.43%</td><td>0.6315</td><td>88.04%</td></tr>
+                <tr><td>18 (Stop)</td><td>0.1444</td><td>94.82%</td><td>0.8954</td><td>88.52%</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li><strong>Peak Performance:</strong> The model reached its optimal balance of training and validation loss at Epoch 13 (Val Loss: 0.4169, Val Accuracy: 86.12%).</li>
+            <li><strong>Overfitting Observed:</strong> Beyond Epoch 13, the training accuracy continued to climb up to ~96% while the validation loss diverged and became unstable, triggering Early Stopping.</li>
+            <li><strong>Recommendation:</strong> Adding data augmentation (e.g., rotation, flipping, zooming) and stronger regularization or pre-trained architectures (like ResNet or MobileNet) is recommended for better generalization on small datasets (~800 samples).</li>
+        </ul>
+    </div>
+</body>
+</html>
