@@ -1,0 +1,16 @@
+# Ignore PyTorch saved weight files
+weights/*.pt
+weights/
+
+# Ignore TensorBoard log directories
+runs/
+
+# Ignore Python cache & environment files
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+
+# Ignore custom tokenizer outputs if generated dynamically
+tokenizer_*.json
